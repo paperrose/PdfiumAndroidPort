@@ -255,7 +255,7 @@ public class PdfiumCore {
 
             try {
                 doc.parcelFileDescriptor.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 /* ignore */
             }
             doc.parcelFileDescriptor = null;
