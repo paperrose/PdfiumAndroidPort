@@ -134,7 +134,7 @@ public class PdfiumCore {
     }
 
     
-    public long openPage(PdfDocument doc) {
+    /*public long openPage(PdfDocument doc) {
         long pagePtr;
         synchronized (lock) {
             pagePtr = nativeLoadPage(doc.mNativeDocPtr, 0);
@@ -151,7 +151,7 @@ public class PdfiumCore {
                                  int startX, int startY, int drawSizeX, int drawSizeY,
                                  boolean renderAnnot) {
         renderPageBitmap(doc, bitmap, 0, startX, startY, drawSizeX, drawSizeY, renderAnnot);
-    }
+    }*/
 
     
     
