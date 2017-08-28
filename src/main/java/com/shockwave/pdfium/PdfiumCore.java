@@ -133,6 +133,28 @@ public class PdfiumCore {
         }
     }
 
+    
+    public long openPage(PdfDocument doc) {
+        long pagePtr;
+        synchronized (lock) {
+            pagePtr = nativeLoadPage(doc.mNativeDocPtr, 0);
+            doc.mNativePagesPtr.put(0, pagePtr);
+            return pagePtr;
+        }
+    }
+
+    public void renderPageBitmap(PdfDocument doc, Bitmap bitmap, int startX, int startY, int drawSizeX, int drawSizeY) {
+        renderPageBitmap(doc, bitmap, 0, startX, startY, drawSizeX, drawSizeY, false);
+    }
+
+    public void renderPageBitmap(PdfDocument doc, Bitmap bitmap,
+                                 int startX, int startY, int drawSizeX, int drawSizeY,
+                                 boolean renderAnnot) {
+        renderPageBitmap(doc, bitmap, 0, startX, startY, drawSizeX, drawSizeY, renderAnnot);
+    }
+
+    
+    
     public long openPage(PdfDocument doc, int pageIndex) {
         long pagePtr;
         synchronized (lock) {
